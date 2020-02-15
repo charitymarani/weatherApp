@@ -20,7 +20,9 @@ const ipBaseUrl =`http://api.ipstack.com`
 
 
 const getLocation = async (url)=>{
+  
   let res = await axios.get(url)
+  console.log('=======',res)
   return res.data
 }
 const getWeather = async (url)=>{
@@ -33,7 +35,7 @@ app.get('/location', async (req, res) => {
 
   // Get the latitude and longitude of different locations from the Geocoding API
   const ipResponse = await getLocation(ipUrl)
-
+  console.log('=======',ipResponse)
   const latitude = ipResponse.latitude
   const longitude = ipResponse.longitude
   const city = ipResponse.city
